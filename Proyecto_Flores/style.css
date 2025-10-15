@@ -1,0 +1,285 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #f9f9f9, #ffe6f0);
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  cursor: url('imagenes/imagen_petalo3.png'), auto;
+}
+
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e91e63;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #e91e63;
+}
+
+/* HERO */
+.hero {
+  background: url('imagenes/imagen.flores.jpg') center/cover no-repeat;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  background-attachment: fixed; /* ✨ efecto parallax */
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.4);
+}
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  min-height: 70px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  from { text-shadow: 0 0 15px rgba(255, 255, 255, 0.6); }
+  to { text-shadow: 0 0 30px rgba(255, 182, 193, 1); }
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  background: #ff6392;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  animation: floatBtn 3s ease-in-out infinite;
+}
+
+@keyframes floatBtn {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.btn:hover {
+  background: #ff3366;
+  transform: scale(1.1);
+  box-shadow: 0 4px 20px rgba(255, 99, 146, 0.4);
+}
+
+
+/* CATEGORÍAS */
+.categorias {
+  background-image: url('imagenes/fondo_floral.jpg');
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+
+.categorias h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  transform: scale(0.9);
+  opacity: 0;
+}
+
+.card.visible {
+  transform: scale(1);
+  opacity: 1;
+  transition: all 0.6s ease;
+}
+
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+.card h3 {
+  padding: 1rem;
+}
+
+/* VIDEO */
+.video {
+  position: relative;
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.video h2 {
+  margin-bottom: 1.5rem;
+}
+
+.video video {
+  width: 100%;
+  border-radius: 10px;
+  max-width: 800px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+/* CONTACTO */
+.contacto {
+  text-align: center;
+  padding: 4rem 2rem;
+  background-color: #f8f8f8;
+}
+
+.contacto h2 {
+  color: #e91e63;
+  margin-bottom: 1rem;
+}
+
+/* FOOTER */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+footer .social {
+  margin-top: 1rem;
+}
+
+.social a {
+  color: #ff6392;
+  margin: 0 10px;
+  font-size: 20px;
+  transition: transform 0.3s;
+}
+.social a:hover {
+  transform: rotate(15deg) scale(1.2);
+}
+
+
+/* ANIMACIONES */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* 🌸 EFECTO DE PÉTALOS */
+.petal {
+  position: absolute;
+  top: -50px;
+  width: 40px;
+  height: 40px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  animation-name: fall;
+  animation-timing-function: linear;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateY(95vh) rotate(360deg);
+  }
+}
+
+
+
+/* BOTÓN VOLVER ARRIBA */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #ff6392;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  display: none;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+#backToTop:hover {
+  background-color: #ff3366;
+  transform: scale(1.1);
+}
+
+
